@@ -1,5 +1,13 @@
 package ru.netology.radio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
     private int numberOfRadio = 10; //количество радиостанций по умолчанию
     private int maxRadio = 9; //максимальная радиостанция по умолчанию
@@ -10,9 +18,6 @@ public class Radio {
     public Radio(int numberOfRadio) {
         this.numberOfRadio = numberOfRadio;
         this.maxRadio = numberOfRadio - 1;
-    }
-
-    public Radio() {
     }
 
     public int getCurrentRadio() {
