@@ -1,22 +1,45 @@
 package ru.netology.radio;
 
 public class Radio {
+    private int numberOfRadio = 10; //количество радиостанций по умолчанию
+    private int maxRadio = 9; //максимальная радиостанция по умолчанию
     private int currentRadio; //номер текущей радиостанции
-    private int currentVolume; //громкость звука
+    private int maxVolume = 100;
+    private int currentVolume;//громкость звука
+
+    public Radio(int numberOfRadio) {
+        this.numberOfRadio = numberOfRadio;
+        this.maxRadio = numberOfRadio - 1;
+    }
+
+    public Radio() {
+    }
 
     public int getCurrentRadio() {
         return currentRadio;
+    }
+
+    public int getNumberOfRadio() {
+        return numberOfRadio;
+    }
+
+    public int getMaxRadio() {
+        return maxRadio;
     }
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
+    public int getMaxVolume() {
+        return maxVolume;
+    }
+
     public void setCurrentRadio(int newCurrentRadio) {
         if (newCurrentRadio < 0) {
             return;
         }
-        if (newCurrentRadio > 9) {
+        if (newCurrentRadio > maxRadio) {
             return;
         }
         currentRadio = newCurrentRadio;
@@ -26,7 +49,7 @@ public class Radio {
         if (newCurrentVolume < 0) {
             return;
         }
-        if (newCurrentVolume > 100) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
         currentVolume = newCurrentVolume;
@@ -34,7 +57,7 @@ public class Radio {
 
     public void nextRadio() {
         int next = currentRadio++;
-        if (currentRadio > 9) {
+        if (currentRadio > maxRadio) {
             next = 0;
         } else {
             next = currentRadio;
@@ -45,7 +68,7 @@ public class Radio {
     public void prevRadio() {
         int prev = currentRadio--;
         if (currentRadio < 0) {
-            prev = 9;
+            prev = maxRadio;
         } else {
             prev = currentRadio;
         }
@@ -53,7 +76,7 @@ public class Radio {
     }
 
     public void volumeUp() {
-        if (currentVolume < 100) {
+        if (currentVolume < maxVolume) {
             currentVolume++;
         }
     }
