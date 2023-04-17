@@ -20,26 +20,6 @@ public class Radio {
         this.maxRadio = numberOfRadio - 1;
     }
 
-    public int getCurrentRadio() {
-        return currentRadio;
-    }
-
-    public int getNumberOfRadio() {
-        return numberOfRadio;
-    }
-
-    public int getMaxRadio() {
-        return maxRadio;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
     public void setCurrentRadio(int newCurrentRadio) {
         if (newCurrentRadio < 0) {
             return;
